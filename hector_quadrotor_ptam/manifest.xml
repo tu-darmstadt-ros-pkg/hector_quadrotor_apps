@@ -1,0 +1,17 @@
+<package>
+  <description brief="hector_quadrotor_ptam demonstrates the use of the ptam Visual SLAM package on a simulated quadrotor UAV">
+
+     hector_quadrotor_ptam demonstrates the use of the ptam Visual SLAM package on a simulated quadrotor UAV
+
+  </description>
+  <author>Stefan Kohlbrecher</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/hector_quadrotor_ptam</url>
+  
+  <depend package="ptam"/>
+  <depend package="hector_nist_arena_worlds"/>
+
+</package>
+
+

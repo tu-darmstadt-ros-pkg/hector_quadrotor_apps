@@ -1,0 +1,9 @@
+<stack>
+  <description brief="hector_quadrotor_experimental">hector_quadrotor_experimental</description>
+  <author>Maintained by Johannes Meyer</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/hector_quadrotor_experimental</url>
+  <depend stack="ros" />
+
+</stack>
