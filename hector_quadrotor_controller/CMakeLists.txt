@@ -19,9 +19,20 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #rosbuild_add_boost_directories()
 
 set(MATLAB_MODEL_DIR "${CMAKE_SOURCE_DIR}/matlab/emcprj/rtwlib")
+add_subdirectory(matlab)
+add_library(quadrotorPropulsion STATIC IMPORTED GLOBAL)
+add_dependencies(quadrotorPropulsion matlab_compile_all)
+set_target_properties(quadrotorPropulsion PROPERTIES IMPORTED_LOCATION "${MATLAB_MODEL_DIR}/quadrotorPropulsion/quadrotorPropulsion.a")
+
+add_library(quadrotorDrag STATIC IMPORTED GLOBAL)
+add_dependencies(quadrotorDrag matlab_compile_all)
+set_target_properties(quadrotorDrag PROPERTIES IMPORTED_LOCATION "${MATLAB_MODEL_DIR}/quadrotorDrag/quadrotorDrag.a")
+
 include_directories(${MATLAB_MODEL_DIR})
 rosbuild_add_library(hector_gazebo_quadrotor_aerodynamics src/quadrotor_aerodynamics.cpp)
-target_link_libraries(hector_gazebo_quadrotor_aerodynamics "${MATLAB_MODEL_DIR}/quadrotorPropulsion/quadrotorPropulsion.a" "${MATLAB_MODEL_DIR}/quadrotorDrag/quadrotorDrag.a")
+#target_link_libraries(hector_gazebo_quadrotor_aerodynamics "${MATLAB_MODEL_DIR}/quadrotorPropulsion/quadrotorPropulsion.a" "${MATLAB_MODEL_DIR}/quadrotorDrag/quadrotorDrag.a")
+#add_dependencies(hector_gazebo_quadrotor_aerodynamics quadrotorPropulsion quadrotorDrag)
+target_link_libraries(hector_gazebo_quadrotor_aerodynamics quadrotorPropulsion quadrotorDrag)
 
 rosbuild_add_executable(test_trajectory src/test_trajectory.cpp)
 

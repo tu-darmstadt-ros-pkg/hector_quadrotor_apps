@@ -285,7 +285,7 @@ void GazeboQuadrotorAerodynamics::Update()
 
     if (new_motor_voltages_.empty() && motor_status_.on &&  control_period_ > 0 && current_time > last_control_time_ + control_period_ + control_tolerance_) {
       ROS_WARN("[quadrotor_aerodynamics] waiting for command...");
-      if (command_condition_.timed_wait(lock, ros::Duration(100.0 * control_period_).toBoost())) continue;
+      if (command_condition_.timed_wait(lock, (ros::Duration(control_period_.sec, control_period_.nsec) * 100.0).toBoost())) continue;
       ROS_ERROR("[quadrotor_aerodynamics] command timed out.");
       motor_status_.on = false;
     }
