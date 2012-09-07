@@ -1,12 +1,10 @@
 <stack>
-  <description brief="hector_quadrotor_demo">hector_quadrotor_apps contains demo packages that demonstrate the usage of the hector_quadrotor stack in connection with other useful stacks and packages, like hector_slam and ptam.</description>
+  <description brief="hector_quadrotor_demo">hector_quadrotor_apps contains demo packages that demonstrate the usage of the hector_quadrotor stack together with other useful stacks and packages.</description>
   <author>Maintained by Johannes Meyer and Stefan Kohlbrecher</author>
   <license>BSD</license>  
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/hector_quadrotor_apps</url>
-  <depend stack="ros" />
   <depend stack="hector_quadrotor" />
   <depend stack="hector_slam" />
-  <depend stack="ethzasl_ptam" />
 
 </stack>
