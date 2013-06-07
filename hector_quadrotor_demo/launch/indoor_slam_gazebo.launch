@@ -3,7 +3,9 @@
 <launch>
    
   <!-- Start Gazebo with wg world running in (max) realtime -->
-  <include file="$(find gazebo_worlds)/launch/wg_collada_world.launch"/>
+  <include file="$(find hector_gazebo_worlds)/launch/start.launch">
+    <arg name="world" value="$(find gazebo)/gazebo/share/gazebo-1.5/worlds/willowgarage.world" />
+  </include>
    
   <!-- Spawn simulated quadrotor uav -->
   <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch" >
